@@ -18,7 +18,7 @@ from qdrant_client import QdrantClient
 from langchain_qdrant import QdrantVectorStore
 
 # Load environment and initialize
-LLM_MODEL_NAME = "qwen/qwen3-8b:free"
+LLM_MODEL_NAME = "Qwen3-8B"
 EMBEDDINGS_MODEL = "text-embedding-3-small"
 DATA_DESC = "UU Ketenagakerjaan (UU No. 13 Tahun 2003) sebagaimana diubah oleh UU No. 6 Tahun 2023 (Cipta Kerja)."
 
