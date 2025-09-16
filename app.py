@@ -18,6 +18,11 @@ from qdrant_client import QdrantClient
 from langchain_qdrant import QdrantVectorStore
 
 # Load environment and initialize
+LLM_MODEL_NAME = "qwen/qwen3-8b:free"
+EMBEDDINGS_MODEL = "text-embedding-3-small"
+DATA_DESC = "UU Ketenagakerjaan (UU No. 13 Tahun 2003) sebagaimana diubah oleh UU No. 6 Tahun 2023 (Cipta Kerja)."
+
+
 _ = load_dotenv(find_dotenv())
 openai.api_key = st.secrets.get("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
@@ -230,6 +235,13 @@ def get_no_rag_response(query):
 st.set_page_config(page_title="QA UU Ketenagakerjaan", layout="wide")
 st.sidebar.title("Pengaturan")
 mode = st.sidebar.radio("Mode Jawaban", ["rag", "no_rag"], format_func=lambda x: {"rag": "Dengan RAG", "no_rag": "Tanpa RAG"}[x])
+
+st.sidebar.markdown("### ℹ️ Info Model & Data")
+st.sidebar.write(f"**Model LLM:** {LLM_MODEL_NAME}")
+st.sidebar.write(f"**Data yang digunakan:** {DATA_DESC}")
+st.sidebar.write(f"**Model Embedding:** {EMBEDDINGS_MODEL} (1536-dim)")
+st.sidebar.divider()
+
 st.markdown("<h2 style='text-align: center;'>Tanya Jawab UU Ketenagakerjaan</h2>", unsafe_allow_html=True)
 
 query = st.text_input("Masukkan pertanyaan Anda:")
