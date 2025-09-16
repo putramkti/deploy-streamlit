@@ -1,0 +1,13 @@
+streamlit>=1.36
+python-dotenv
+openai>=1.40
+tiktoken
+langchain>=0.2
+langchain-openai>=0.1
+langchain-community>=0.2
+langchain-chroma>=0.1
+langchain-qdrant>=0.1
+qdrant-client>=1.9
+scikit-learn
+numpy
+pandas
