@@ -26,7 +26,7 @@ def get_qdrant_client():
     if st.secrets.get("QDRANT_URL"):
         return QdrantClient(
             url = st.secrets.get("QDRANT_URL"),
-            key = st.secrets.get("QDRANT_API_KEY"),
+            api_key = st.secrets.get("QDRANT_API_KEY"),
             timeout=60,
         )
     
