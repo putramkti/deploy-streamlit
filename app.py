@@ -229,13 +229,13 @@ def get_no_rag_response(query):
 # Streamlit UI
 st.set_page_config(page_title="QA UU Ketenagakerjaan", layout="wide")
 st.sidebar.title("Pengaturan")
-mode = st.sidebar.radio("Mode Jawaban", ["rag", "no_rag", "both"], format_func=lambda x: {"rag": "Dengan RAG", "no_rag": "Tanpa RAG", "both": "Keduanya"}[x])
+mode = st.sidebar.radio("Mode Jawaban", ["rag", "no_rag"], format_func=lambda x: {"rag": "Dengan RAG", "no_rag": "Tanpa RAG"}[x])
 st.markdown("<h2 style='text-align: center;'>Tanya Jawab UU Ketenagakerjaan</h2>", unsafe_allow_html=True)
 
 query = st.text_input("Masukkan pertanyaan Anda:")
 if st.button("Tanyakan") and query:
-    with st.spinner("🔄 Mengambil jawaban dan konteks..."):
-        if mode in ["rag", "both"]:
+    with st.spinner(" Mengambil jawaban dan konteks..."):
+        if mode in ["rag"]:
             st.markdown("### Jawaban dengan RAG")
             rag_stream, context_data = stream_rag_response(query)
             placeholder = st.empty()
@@ -254,7 +254,7 @@ if st.button("Tanyakan") and query:
                 embed_scores=context_data.get("embed_scores")
             )
 
-        if mode in ["no_rag", "both"]:
+        if mode in ["no_rag"]:
             st.markdown("### Jawaban tanpa RAG")
             no_rag_stream = get_no_rag_response(query)
             placeholder = st.empty()
