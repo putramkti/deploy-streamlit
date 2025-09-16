@@ -6,10 +6,8 @@ from dotenv import load_dotenv, find_dotenv
 import openai
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_ollama import OllamaLLM
 from langchain.retrievers import EnsembleRetriever
 from langchain_community.retrievers import TFIDFRetriever
 from langchain_core.documents import Document
