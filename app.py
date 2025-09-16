@@ -236,7 +236,7 @@ st.set_page_config(page_title="QA UU Ketenagakerjaan", layout="wide")
 st.sidebar.title("Pengaturan")
 mode = st.sidebar.radio("Mode Jawaban", ["rag", "no_rag"], format_func=lambda x: {"rag": "Dengan RAG", "no_rag": "Tanpa RAG"}[x])
 
-st.sidebar.markdown("### ℹ️ Info Model & Data")
+st.sidebar.markdown("### Info Model LLM & Data")
 st.sidebar.write(f"**Model LLM:** {LLM_MODEL_NAME}")
 st.sidebar.write(f"**Data yang digunakan:** {DATA_DESC}")
 st.sidebar.write(f"**Model Embedding:** {EMBEDDINGS_MODEL} (1536-dim)")
